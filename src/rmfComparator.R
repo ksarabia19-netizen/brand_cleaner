@@ -3,6 +3,7 @@
 #
 
 library(stringdist)
+library(data.table)
 
 normalizar_texto <- function(x) {
   x <- tolower(x)
@@ -11,6 +12,7 @@ normalizar_texto <- function(x) {
   x <- trimws(x)
   return(x)
 }
+
 extraer_prefijo_palabra <- function(texto, n) {
   if (nchar(texto) <= n) return(texto)
   
@@ -48,5 +50,6 @@ rmfComparator <- function(rmfs, marcas){
     set(dt, j = rmfNames[[i]], value = txtComparator(dt$marca, producto))
     i <- i + 1
   }
+  return(dt)
 }
 
