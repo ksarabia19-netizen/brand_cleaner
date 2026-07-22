@@ -53,3 +53,9 @@ rmfComparator <- function(rmfs, marcas){
   return(dt)
 }
 
+isLegal <- function(rmf, alerta){
+  if(rmf >= 0.95 & alerta < 0.95) return(list(1, "RMF"))
+  if(rmf >= 0.95 & alerta >= 0.95) return(list(0, "Both"))
+  if(rmf < 0.95 & alerta < 0.95) return(list(0, "None"))
+  if(rmf < 0.95 & alerta >= 0.95) return(list(0, "Alerta"))
+}
